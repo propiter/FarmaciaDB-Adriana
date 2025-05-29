@@ -1,0 +1,757 @@
+{
+	"info": {
+		"_postman_id": "f9dd6b1d-d198-4c82-b247-8d5aaab51fc0",
+		"name": "Inventory Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32310185",
+		"_collection_link": "https://whitelabel-2579.postman.co/workspace/HERRAMIENTAS~36abb5c3-2093-4c76-9ea5-4ef7e504e7e1/collection/32310185-f9dd6b1d-d198-4c82-b247-8d5aaab51fc0?action=share&source=collection_link&creator=32310185"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"correo\": \"pro.pedro0413@gmail.com\",\n  \"contraseña\": \"Propro93\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pedro Rodriguez\",\r\n    \"correo\": \"pro.pedro0413@gmail.com\",\r\n    \"contraseña\": \"Propro93\",\r\n    \"rol\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/productos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/productos/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codigo_barras\": \"75010023435136\",\n        \"nombre\": \"Ibuprofeno\",\n        \"concentracion\": \"500 mg\",\n        \"forma_farmaceutica\": \"Tableta\",\n        \"presentacion\": \"Caja x 30 tabletas\",\n        \"laboratorio\": \"Bayer\",\n        \"registro_sanitario\": \"RS2345456\",\n        \"categoria\": \"Antiinflamatorio\",\n        \"stock\": 500,\n        \"precio_venta\": \"8.80\",\n        \"proveedor_id\": 2,\n        \"temperatura_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/productos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"nombre\": \"Ibuprofeno\",\n        \"concentracion\": \"500 mg\",\n        \"forma_farmaceutica\": \"Tableta\",\n        \"presentacion\": \"Caja x 30 tabletas\",\n        \"laboratorio\": \"Bayer\",\n        \"registro_sanitario\": \"RS2345456\",\n        \"categoria\": \"Antiinflamatorio\",\n        \"stock\": 500,\n        \"precio_venta\": \"10.80\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/productos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/productos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Batches",
+			"item": [
+				{
+					"name": "Get Batches By Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/lotes/product/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"lotes",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expiring Batches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/lotes/expiring",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"lotes",
+								"expiring"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Batch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lote_codigo\": \"LOTE-001\",\n    \"producto_id\": 1,\n    \"fecha_vencimiento\": \"2024-12-31\",\n    \"cantidad\": 10,\n    \"precio_compra\": \"6\",\n    \"observaciones\": \"Lote inicial\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/lotes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"lotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lote_codigo\": \"LOTE-001\",\n    \"producto_id\": 1,\n    \"cantidad\": 10,\n    \"precio_compra\": \"6\",\n    \"observaciones\": \"Lote inicial\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/lotes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"lotes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Batch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/lotes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"lotes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Client Name\",\n  \"documento\": \"123456789\",\n  \"telefono\": \"555-1234\",\n  \"correo\": \"client@example.com\",\n  \"direccion\": \"CR 4\",\n  \"tipo\": \"normal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Updated Client Name\",\n  \"documento\": \"987654321\",\n  \"telefono\": \"555-4321\",\n  \"correo\": \"updated@example.com\",\n  \"tipo\": \"frecuente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Create Sale",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cliente_id\": 1,\n  \"metodo_pago\": \"mixto\",\n  \"pago_desglose\": {\n    \"efectivo\": 150,\n    \"tarjeta\": 30,\n    \"transferencia\": 20\n  },\n  \"detalles\": [\n    {\n      \"producto_id\": 1,\n      \"lote\": \"LOTE-001\",\n      \"cantidad\": 1\n    },\n    {\n      \"producto_id\": 2,\n      \"lote\": \"LOTE-2023-003\",\n      \"cantidad\": 1,\n      \"descuento\": 1.50\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/ventas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sales",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ventas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Create Purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"proveedor_id\": 1,\n  \"fecha_compra\": \"2024-01-01\",\n  \"total_compra\": 100.00,\n  \"items\": [\n    {\n      \"producto_id\": 1,\n      \"cantidad\": 2,\n      \"precio_unitario\": 50.00\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/compras",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"compras"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Receiving",
+			"item": [
+				{
+					"name": "Create Receiving",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"compra_id\": 1,\n  \"fecha_recepcion\": \"2024-01-02\",\n  \"items\": [\n    {\n      \"producto_id\": 2,\n      \"cantidad_recibida\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recepciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recepciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get Sales Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/reportes/inventory/export-excel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"inventory",
+								"export-excel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:4000",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
