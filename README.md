@@ -1,4 +1,4 @@
-# Windsurf - Inventory Management System
+# FarmaciaDB - Inventory Management System
 
 ![Project Logo](https://via.placeholder.com/150)  *(Reemplaza con tu logo real)*
 
@@ -36,7 +36,7 @@ npm start
 
 ## Estructura del proyecto
 ```
-windsurf/
+farmacia-backend/
 ├── controllers/       # Lógica de negocio
 ├── routes/           # Definición de endpoints
 ├── models/           # Modelos de base de datos
@@ -47,7 +47,7 @@ windsurf/
 ```
 
 ## Documentación API
-La colección Postman `Inventory Management API.postman_collection.json` contiene:
+La colección Postman `FarmaciaDB - Inventory Management API.postman_collection.json` contiene:
 - Todos los endpoints disponibles
 - Ejemplos de requests/responses
 - Configuración de autenticación
